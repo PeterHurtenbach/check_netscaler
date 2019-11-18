@@ -423,7 +423,7 @@ sub check_state {
     if ( defined( $counter{ $response->{$field_state} } ) ) {
       $counter{ $response->{$field_state} }++;
     }
-    if ( $response->{$field_state} eq 'UP' || $response->{$field_state} eq 'ENABLED' ) {
+    if ( $response->{$field_state} eq 'UP' || $response->{$field_state} eq 'ENABLED' || $response->{$field_state} eq 'OUT OF SERVICE' ) {
       $plugin->add_message( OK, $response->{$field_name} . ' ' . $response->{$field_state} . ';' );
     } elsif ( $response->{$field_state} eq 'PARTIAL-UP' || $response->{$field_state} eq 'DISABLED' ) {
       $plugin->add_message( WARNING, $response->{$field_name} . ' ' . $response->{$field_state} . ';' );
